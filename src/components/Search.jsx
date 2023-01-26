@@ -1,22 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiData } from '../features/search/searchSlice';
-import TextField from '@mui/material/TextField';
 
 function Search() {
+    const [searchValue, setSearchValue] = useState('');
     const dispatch = useDispatch();
-    const img = useSelector(state => state.searchImg.list.urls !== undefined && state.searchImg.list.urls.small)
 
     const handleClick = () => {
         dispatch(getApiData())
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(getApiData(searchValue))
+    }
+
+    const handleChange = (e) => {
+        setSearchValue(e.target.value);
+    }
+    
     return (
         <>
-            <h1>Hola</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder='Search...' value={searchValue} onChange={handleChange}/>
+            </form>
             <button onClick={handleClick}>tu vieja 13</button>
-            <img src={img} />
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
         </>
     )
 }
