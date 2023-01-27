@@ -15,9 +15,14 @@ export const favoritesSlice = createSlice({
                 state.list = [...state.list, action.payload];
                 localStorage.setItem('myFavorites', JSON.stringify(state.list));
             }
+        },
+        deleteImageFromMyFavorites: (state, action) => {
+            state.list = state.list.filter(item => item.id !== action.payload.id);
+            localStorage.setItem('myFavorites', JSON.stringify(state.list));
+
         }
     }
 })
 
 export default favoritesSlice.reducer;
-export const { addToMyFavorites } = favoritesSlice.actions;
+export const { addToMyFavorites, deleteImageFromMyFavorites } = favoritesSlice.actions;

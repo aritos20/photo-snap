@@ -8,12 +8,10 @@ import InfoIcon from '@mui/icons-material/Info';
 import ImageList from '@mui/material/ImageList';
 import Fab from '@mui/material/Fab';
 import { addToMyFavorites } from '../features/favorites/favoritesSlice';
-import { Button } from '@mui/material';
 
 function RenderImages() {
     const dispatch = useDispatch();
     let img = useSelector(state => state.searchImg.list);
-    let favs = useSelector(state => state.favoritesImgs.list);
     
     const handleClick = (data) => {
         dispatch(addToMyFavorites(data));
