@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import FavoritesSlice from './features/favorites/favoritesSlice';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
-  }
+  },
+  // {
+  //   path: "my-photos",
+  //   element: <Favorites />
+  // }
 ]);
 
 root.render(
