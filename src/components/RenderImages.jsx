@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';

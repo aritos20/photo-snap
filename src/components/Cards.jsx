@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,14 +7,24 @@ import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Container } from '@mui/material';
 import { deleteImageFromMyFavorites } from '../features/favorites/favoritesSlice';
+import ModalEditDescription from './ModalEditDescription';
 
 const Cards = () => {
     const dispatch = useDispatch();
     const favsImgs = useSelector(state => state.favoritesImgs.list);
-    console.log(favsImgs);
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleDeleteClick = (item) => {
         dispatch(deleteImageFromMyFavorites(item));
+    }
+
+    const handleClickDescription = () => {
+        setIsOpen(true);
+    }
+
+    const handleClose = () => {
+        setIsOpen(false);
     }
 
     return (
@@ -36,10 +46,12 @@ const Cards = () => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        {/* <Button size="small" onClick={handleClick}>Download</Button> */}
-                        <Button size="small" onClick={() => handleDeleteClick(item)}>Delete</Button>
-                    </CardActions> 
-                </Card>))}
+                        <Button size="small" onClick={handleClickDescription}>Edit description</Button>
+                        <Button size="small" onClick={() => handleDeleteClick(item.id)}>Delete</Button>
+                    </CardActions>
+                    <ModalEditDescription isOpen={isOpen} handleClose={handleClose} id={item.id}/> 
+                </Card>
+                ))}
             </Container>
         </>
     )

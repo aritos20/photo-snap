@@ -7,12 +7,12 @@ import RenderImages from './components/RenderImages';
 
 function App() {
   return (
-    <div className="App">
-      <Link to="/my-photos">My Photos</Link>
-      <ButtonAppBar />
-      <Search />
-      <RenderImages />
-    </div>
+      <div className="App">
+        <Link to="/my-photos">My Photos</Link>
+        <ButtonAppBar />
+        <Search />
+        <RenderImages />
+      </div>
   );
 }
 
