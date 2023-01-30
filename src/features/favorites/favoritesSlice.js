@@ -17,7 +17,9 @@ export const favoritesSlice = createSlice({
             }
         },
         deleteImageFromMyFavorites: (state, action) => {
-            state.list = state.list.filter(item => item.id !== action.payload);
+            state.list = JSON.parse(localStorage.getItem('myFavorites'));
+            const newArr = state.list.filter(item => item.id !== action.payload);
+            state.list = newArr;
             localStorage.setItem('myFavorites', JSON.stringify(state.list));
         },
         editDescription: (state, action) => {
@@ -39,7 +41,6 @@ export const favoritesSlice = createSlice({
             }
         },
         sortBy: (state, action) => {
-            console.log(action.payload);
             switch (action.payload) {
                 case 'none':
                     state.list = JSON.parse(localStorage.getItem('myFavorites'));
@@ -52,6 +53,9 @@ export const favoritesSlice = createSlice({
                     break;
                 case 'likes':
                     state.list = state.list.sort((a, b) => b.likes - a.likes);
+                    break;
+                case 'date':
+                    state.list = state.list.sort((a, b) => b.date - a.date);
                     break;
                 default:
                     state.list = JSON.parse(localStorage.getItem('myFavorites'));

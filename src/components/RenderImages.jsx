@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -7,13 +7,33 @@ import InfoIcon from '@mui/icons-material/Info';
 import ImageList from '@mui/material/ImageList';
 import Fab from '@mui/material/Fab';
 import { addToMyFavorites } from '../features/favorites/favoritesSlice';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 function RenderImages() {
+    const [open, setOpen] = useState(false);
+  
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+
     const dispatch = useDispatch();
     let img = useSelector(state => state.searchImg.list);
     
     const handleClick = (data) => {
+        let objDate = new Date();
+        let date = objDate.toLocaleString();
+        data = {...data, date};
         dispatch(addToMyFavorites(data));
+        setOpen(true);
     }
 
     return (
@@ -38,7 +58,6 @@ function RenderImages() {
                                 id: item.id,
                                 width: item.width,
                                 height: item.height,
-                                date: item.created_at,
                                 likes: item.likes,
                                 urls: item.urls,
                                 description: item.alt_description
@@ -49,16 +68,14 @@ function RenderImages() {
                         </IconButton>
                         }
                     />
-                    {/* <Fab color="primary" aria-label="add">
-                    <AddIcon />
-                    </Fab>
-                    <Fab variant="extended">
-                        <NavigationIcon sx={{ mr: 1 }} />
-                        Navigate
-                    </Fab> */}
                     </ImageListItem>
                 ))}
             </ImageList>
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                Image succesfully saved
+                </Alert>
+            </Snackbar>
         </>
     )
 }

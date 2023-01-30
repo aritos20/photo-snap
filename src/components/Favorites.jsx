@@ -1,9 +1,8 @@
-import ButtonAppBar from './NavBar'
+import NavBar from './NavBar'
 import { Link } from 'react-router-dom';
 import Cards from './Cards';
 import { useSelector } from 'react-redux';
 import FilterByDescription from './FilterByDescription';
-import SortBy from './SortBy';
 
 const Favorites = () => {
   const favsImgs = useSelector(state => state.favoritesImgs.list);  
@@ -12,9 +11,8 @@ const Favorites = () => {
   return (
     <>
         <Link to="/">Inicio</Link>
-        <ButtonAppBar />
+        <NavBar />
         <FilterByDescription />
-        <SortBy />
         {favsImgs.map(item => (
           <Cards key={item.id}
                  item={item}/>
@@ -22,6 +20,5 @@ const Favorites = () => {
     </>
   )
 }
-
 
 export default Favorites
