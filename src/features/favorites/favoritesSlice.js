@@ -21,8 +21,14 @@ export const favoritesSlice = createSlice({
             localStorage.setItem('myFavorites', JSON.stringify(state.list));
         },
         editDescription: (state, action) => {
-            console.log(action.payload.id);
-            console.log(action.payload.description);
+            state.list = state.list.map(item => {
+                if (item.id === action.payload.id) {
+                    return {...item, description: action.payload.description};
+                } else {
+                    return item;
+                }
+            })
+            localStorage.setItem('myFavorites', JSON.stringify(state.list));
         }
     }
 })

@@ -5,27 +5,14 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Favorites from './components/Favorites';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />
-  },
-  {
-    path: "/my-photos",
-    element: <Favorites />
-  }
-]);
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <App />
     </Provider>
   </React.StrictMode>
 );

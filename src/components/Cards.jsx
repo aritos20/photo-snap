@@ -4,14 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Card, Container } from '@mui/material';
 import { deleteImageFromMyFavorites } from '../features/favorites/favoritesSlice';
 import ModalEditDescription from './ModalEditDescription';
 
-const Cards = () => {
+const Cards = ({item}) => {
     const dispatch = useDispatch();
-    const favsImgs = useSelector(state => state.favoritesImgs.list);
+    // const favsImgs = useSelector(state => state.favoritesImgs.list);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -30,7 +30,6 @@ const Cards = () => {
     return (
         <>
             <Container>
-                {favsImgs.map(item => (
                 <Card>
                     <CardMedia
                         sx={{ height: 140 }}
@@ -45,13 +44,12 @@ const Cards = () => {
                         {item.description}
                         </Typography>
                     </CardContent>
-                    <CardActions>
+                    <CardActions >
                         <Button size="small" onClick={handleClickDescription}>Edit description</Button>
                         <Button size="small" onClick={() => handleDeleteClick(item.id)}>Delete</Button>
                     </CardActions>
                     <ModalEditDescription isOpen={isOpen} handleClose={handleClose} id={item.id}/> 
                 </Card>
-                ))}
             </Container>
         </>
     )

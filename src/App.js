@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
-import { Link } from 'react-router-dom';
-import Search from './components/Search';
-import ButtonAppBar from './components/AppBar';
-import RenderImages from './components/RenderImages';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import Favorites from './components/Favorites';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
+    <HashRouter>
       <div className="App">
-        <Link to="/my-photos">My Photos</Link>
-        <ButtonAppBar />
-        <Search />
-        <RenderImages />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/my-photos" element={<Favorites />} />
+        </Routes>
       </div>
+    </HashRouter>
   );
 }
 
