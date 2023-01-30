@@ -11,7 +11,6 @@ import ModalEditDescription from './ModalEditDescription';
 
 const Cards = ({item}) => {
     const dispatch = useDispatch();
-    // const favsImgs = useSelector(state => state.favoritesImgs.list);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -37,9 +36,10 @@ const Cards = ({item}) => {
                         title={item.description}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                        Lizard
-                        </Typography>
+                        <p>Width: {item.width}</p>
+                        <p>Height: {item.height}</p>
+                        <p>Likes: {item.likes}</p>
+                        <p>Date: {item.date}</p>
                         <Typography variant="body2" color="text.secondary">
                         {item.description}
                         </Typography>
