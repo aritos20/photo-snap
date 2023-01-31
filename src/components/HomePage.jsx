@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
   return (
     <>
-        <Link to="/my-photos">My Photos</Link>
-        <NavBar />
+        <NavBar link="/my-photos" button="My Photos"/>
         <Search />
         <RenderImages />
     </>

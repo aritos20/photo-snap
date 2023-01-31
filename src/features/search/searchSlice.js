@@ -16,7 +16,7 @@ export const getApiData = createAsyncThunk(
                 const data = await response.json();
                 return [...data];
             } else {
-                const response = await fetch(`https://api.unsplash.com/search/photos?client_id=${api_key}&query=${arg}`);
+                const response = await fetch(`https://api.unsplash.com/search/photos?client_id=${api_key}&query=${arg}&per_page=30`);
                 const data = await response.json();
                 return [...data.results];
             }

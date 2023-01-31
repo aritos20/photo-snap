@@ -1,5 +1,4 @@
 import NavBar from './NavBar'
-import { Link } from 'react-router-dom';
 import Cards from './Cards';
 import { useSelector } from 'react-redux';
 import FilterByDescription from './FilterByDescription';
@@ -10,8 +9,7 @@ const Favorites = () => {
 
   return (
     <>
-        <Link to="/">Inicio</Link>
-        <NavBar />
+        <NavBar link="/" button="Inicio"/>
         <FilterByDescription />
         {favsImgs.map(item => (
           <Cards key={item.id}
