@@ -60,7 +60,7 @@ function RenderImages() {
                             alt={item.alt_description}
                             loading="lazy"
                             />
-                            <ImageListItemBar 
+                            <ImageListItemBar style={{display: 'flex', justifyContent: 'space-around'}}
                             actionIcon={
                                 <IconButton
                                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
@@ -89,7 +89,7 @@ function RenderImages() {
                 </ImageList>
                 <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    Image succesfully saved
+                    Image succesfully saved!
                     </Alert>
                 </Snackbar>
             </Container>
