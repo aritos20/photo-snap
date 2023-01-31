@@ -1,10 +1,33 @@
 .main-img {
     width: 100%;
-    height: 350px;
+    height: 400px;
+}
+
+.search {
+    position: relative;
+}
+
+.logo {
+    position: relative;
+}
+
+.logo img {
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%, -150%);
 }
 
 .input-button {
+    position: absolute;
     display: flex;
-    justify-content: center;
     gap: 24px;
+    left: 50%;
+    transform: translate(-50%, -170%);
+    z-index: 5;
+}
+
+.search-input {
+    outline: none;
+    border: none;
+    padding: 10px;
 }

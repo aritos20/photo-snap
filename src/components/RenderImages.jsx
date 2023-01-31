@@ -60,16 +60,16 @@ function RenderImages() {
                             alt={item.alt_description}
                             loading="lazy"
                             />
-                            <ImageListItemBar style={{display: 'flex', justifyContent: 'space-around'}}
+                            <ImageListItemBar
                             actionIcon={
                                 <IconButton
                                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                                 >
-                                <Fab color="primary" aria-label="add" variant='extended' onClick={() => handleDownload(item.urls.full)}>
+                                <Fab color='primary' aria-label="add" variant='extended' style={{background: '#FF8E3C'}} onClick={() => handleDownload(item.urls.full)}>
                                     Download
                                     <AddIcon />
                                 </Fab>
-                                <Fab color="primary" aria-label="add" onClick={() => handleClick(
+                                <Fab color='primary' style={{background: '#FF8E3C'}} aria-label="add" onClick={() => handleClick(
                                     {
                                         id: item.id,
                                         width: item.width,

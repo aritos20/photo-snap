@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getApiData } from '../features/search/searchSlice';
 import main_background from '../assets/main_background.png';
-import TextField from '@mui/material/TextField';
+import logo from '../assets/logo.png'
 import '../css/search.css'
 import { Button } from '@mui/material';
 
@@ -26,14 +26,18 @@ function Search() {
     
     return (
         <>
-            <img src={main_background} className="main-img" />
-            <div className='input-button'>
-                <form onSubmit={handleSubmit}>
-                    <TextField id="outlined-basic" label="Search..." variant="outlined" value={searchValue} onChange={handleChange} />
-                </form>
-                <Button variant="contained" onClick={handleClick}>Search</Button>
+            <div className='search'>
+            <img src={main_background} alt="a waterfall" className="main-img" />
+                <div className='logo'>
+                    <img src={logo} />
+                </div>
+                <div className='input-button'>
+                    <form onSubmit={handleSubmit}>
+                        <input className='search-input' type="text" placeholder='Search...' value={searchValue} onChange={handleChange} />
+                    </form>
+                    <Button style={{background: '#FF8E3C'}}  variant="contained" onClick={handleClick}>Search</Button>
+                </div>
             </div>
-            
         </>
     )
 }
