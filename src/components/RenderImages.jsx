@@ -12,6 +12,7 @@ import { Container } from '@mui/system';
 import { Card } from '@mui/material';
 import { saveAs } from "file-saver";
 import Tooltip from '@mui/material/Tooltip';
+import Footer from './Footer';
 
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;

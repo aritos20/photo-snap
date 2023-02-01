@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 
 const Footer = () => {
   return (
-    <Box>
+    <Box >
     <AppBar position="static" style={{background: '#0D0D0D'}} >
-      <Toolbar style={{display: 'flex', justifyContent: 'space-between'}} >
+      <Toolbar>
         <Typography variant="h6" component="div" style={{textAlign: 'left'}}>
           Developed an designed by Aristidis Gianicopulos
         </Typography>

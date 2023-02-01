@@ -25,7 +25,6 @@ const Favorites = () => {
             ))}
             </ImageList>
         </Container>
-        <Footer />
     </>
   )
 }

@@ -3,6 +3,7 @@ import './App.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Favorites from './components/Favorites';
 import HomePage from './components/HomePage';
+import Footer from './components/Footer';
 
 function App() {
   return (

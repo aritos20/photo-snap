@@ -10,7 +10,6 @@ const HomePage = () => {
         <NavBar link="/my-photos" button="My Photos"/>
         <Search />
         <RenderImages />
-        <Footer />
     </>
   )
 }
