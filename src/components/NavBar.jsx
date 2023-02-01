@@ -11,10 +11,10 @@ const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 export default function NavBar({link, button}) {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="fixed" style={{background: '#0D0D0D'}} >
-        <Toolbar>
-          <Typography variant="h6" component="div" style={{textAlign: 'left'}} sx={{ flexGrow: 1 }}>
+        <Toolbar  style={{display: 'flex', justifyContent: 'space-between'}} >
+          <Typography variant="h6" component="div" style={{textAlign: 'left'}}>
             PhotoSnap
           </Typography>
           <Link to={link} style={{textDecoration: 'none'}}>

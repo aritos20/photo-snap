@@ -11,6 +11,7 @@ import MuiAlert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { Card } from '@mui/material';
 import { saveAs } from "file-saver";
+import Tooltip from '@mui/material/Tooltip';
 
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -59,45 +60,32 @@ function RenderImages() {
                             alt={item.alt_description}
                             loading="lazy"
                             />
-                            {/* <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <Fab color='primary' aria-label="add" variant='extended' style={{background: '#FF8E3C', marginTop: '2px'}} onClick={() => handleDownload(item.urls.full)}>
-                                    Download
-                                </Fab>
-                                <Fab color='primary' style={{background: '#FF8E3C'}} aria-label="add" onClick={() => handleClick(
-                                    {
-                                        id: item.id,
-                                        width: item.width,
-                                        height: item.height,
-                                        likes: item.likes,
-                                        urls: item.urls,
-                                        description: item.alt_description
-                                    }
-                                )}>
-                                    Save
-                                </Fab>
-                            </div> */}
                             <ImageListItemBar
                             title={
-                                <Fab color='primary' aria-label="add" variant='extended' sx={{my: 0}}  style={{background: '#FF8E3C'}} onClick={() => handleDownload(item.urls.full)}>
-                                    Download
-                                </Fab>
+                                <Tooltip title="Donwload the image">
+                                    <Fab color='primary' aria-label="download" variant='extended' style={{background: '#FF8E3C'}} onClick={() => handleDownload(item.urls.full)}>
+                                        Download
+                                    </Fab>
+                                </Tooltip>
                             }
                             actionIcon={
                                 <IconButton
                                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                                 >
-                                <Fab color='primary' style={{background: '#FF8E3C'}} aria-label="add" onClick={() => handleClick(
-                                    {
-                                        id: item.id,
-                                        width: item.width,
-                                        height: item.height,
-                                        likes: item.likes,
-                                        urls: item.urls,
-                                        description: item.alt_description
-                                    }
-                                )}>
-                                    Save
-                                </Fab>
+                                <Tooltip title="Save image in my photos">
+                                    <Fab color='primary' style={{background: '#FF8E3C'}} aria-label="save" onClick={() => handleClick(
+                                        {
+                                            id: item.id,
+                                            width: item.width,
+                                            height: item.height,
+                                            likes: item.likes,
+                                            urls: item.urls,
+                                            description: item.alt_description
+                                        }
+                                    )}>
+                                        Save
+                                    </Fab>
+                                </Tooltip>
                                 </IconButton>
                             }/>
                         </ImageListItem>

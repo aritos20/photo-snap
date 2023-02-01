@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getApiData } from '../features/search/searchSlice';
 import main_background from '../assets/main_background.png';
 import logo from '../assets/logo.png'
-import '../css/search.css'
+import '../css/styles.css'
 import { Button } from '@mui/material';
 
 function Search() {
@@ -35,7 +35,7 @@ function Search() {
             <div className='search'>
             <img src={main_background} alt="a waterfall" className="main-img" />
                 <div className='logo'>
-                    <img src={logo} />
+                    <img src={logo} alt="the logo of the page which is a camera"/>
                 </div>
                 <div className='input-button'>
                     <form onSubmit={handleSubmit}>

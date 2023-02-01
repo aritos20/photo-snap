@@ -22,7 +22,7 @@ export const getApiData = createAsyncThunk(
             }
 
         } catch (error) {
-            alert(error);
+            alert(`Failed the connection to return the images please try again later ${error}`);
         }
     }
 )
