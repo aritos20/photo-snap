@@ -12,12 +12,18 @@ function Search() {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(getApiData())
+        if (searchValue === '') {
+            dispatch(getApiData())
+        } else {
+            dispatch(getApiData(searchValue))
+            setSearchValue('');
+        }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(getApiData(searchValue))
+        setSearchValue('');
     }
 
     const handleChange = (e) => {

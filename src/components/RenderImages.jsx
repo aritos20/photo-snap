@@ -10,8 +10,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { Card } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import {saveAs} from "file-saver";
+import { saveAs } from "file-saver";
 
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -60,15 +59,33 @@ function RenderImages() {
                             alt={item.alt_description}
                             loading="lazy"
                             />
+                            {/* <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                <Fab color='primary' aria-label="add" variant='extended' style={{background: '#FF8E3C', marginTop: '2px'}} onClick={() => handleDownload(item.urls.full)}>
+                                    Download
+                                </Fab>
+                                <Fab color='primary' style={{background: '#FF8E3C'}} aria-label="add" onClick={() => handleClick(
+                                    {
+                                        id: item.id,
+                                        width: item.width,
+                                        height: item.height,
+                                        likes: item.likes,
+                                        urls: item.urls,
+                                        description: item.alt_description
+                                    }
+                                )}>
+                                    Save
+                                </Fab>
+                            </div> */}
                             <ImageListItemBar
+                            title={
+                                <Fab color='primary' aria-label="add" variant='extended' sx={{my: 0}}  style={{background: '#FF8E3C'}} onClick={() => handleDownload(item.urls.full)}>
+                                    Download
+                                </Fab>
+                            }
                             actionIcon={
                                 <IconButton
                                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                                 >
-                                <Fab color='primary' aria-label="add" variant='extended' style={{background: '#FF8E3C'}} onClick={() => handleDownload(item.urls.full)}>
-                                    Download
-                                    <AddIcon />
-                                </Fab>
                                 <Fab color='primary' style={{background: '#FF8E3C'}} aria-label="add" onClick={() => handleClick(
                                     {
                                         id: item.id,
