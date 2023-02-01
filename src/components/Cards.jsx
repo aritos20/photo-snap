@@ -31,7 +31,7 @@ const Cards = ({item}) => {
             <Container>
                 <Card>
                     <CardMedia
-                        sx={{ height: 140 }}
+                        sx={{ height: 300 }}
                         image={item.urls.small}
                         title={item.description}
                     />
@@ -39,7 +39,7 @@ const Cards = ({item}) => {
                         <p>Width: {item.width}</p>
                         <p>Height: {item.height}</p>
                         <p>Likes: {item.likes}</p>
-                        <p>Date: {item.date}</p>
+                        <p>Date Added: {item.date}</p>
                         <Typography variant="body2" color="text.secondary">
                         {item.description}
                         </Typography>

@@ -31,11 +31,13 @@ const ModalEditDescription = ({isOpen, handleClose, id}) => {
         e.preventDefault();
         dispatch(editDescription({id, description}));
         setDescription('');
+        handleClose();
       }
 
       const handleConfirmClick = (id, description) => {
         dispatch(editDescription({id, description}))
         setDescription('');
+        handleClose();
       }
 
       
@@ -49,15 +51,12 @@ const ModalEditDescription = ({isOpen, handleClose, id}) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Edit the description of the image
           </Typography>
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder='Edit description...' value={description} onChange={handleChange}/>
+            <Button size="small" onClick={() => handleConfirmClick(id, description)}>Confirm</Button>
           </form>
-          <Button size="small" onClick={() => handleConfirmClick(id, description)}>Confirm</Button>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
         </Box>
       </Modal>
     </>

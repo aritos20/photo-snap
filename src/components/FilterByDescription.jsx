@@ -29,24 +29,26 @@ const FilterByDescription = () => {
 
   return (
     <>
-        <input type="text" placeholder='Find an image by description...' value={searchValue} onChange={handleChange}/>
-        <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
-            <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={sortByValue}
-            label="sortBy"
-            onChange={handleSelectChange}
-            >
-            <MenuItem value="none">None</MenuItem>
-            <MenuItem value="width">Width</MenuItem>
-            <MenuItem value="height">Height</MenuItem>
-            <MenuItem value="likes">Likes</MenuItem>
-            <MenuItem value="date">Date</MenuItem>
-            </Select>
-        </FormControl>
+      <Box sx={{display: 'flex', justifyContent: 'center', gap: '24px', width: '100%', mt: 3}}>
+          <input style={{width: '40%'}}  type="text" placeholder='Find an image by description...' value={searchValue} onChange={handleChange}/>
+          <Box sx={{ width: '30%' }}>
+            <FormControl sx={{width: '100%'}}>
+                <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+                <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={sortByValue}
+                label="sortBy"
+                onChange={handleSelectChange}
+                >
+                <MenuItem value="none">None</MenuItem>
+                <MenuItem value="width">Width</MenuItem>
+                <MenuItem value="height">Height</MenuItem>
+                <MenuItem value="likes">Likes</MenuItem>
+                <MenuItem value="date">Date</MenuItem>
+                </Select>
+            </FormControl>
+          </Box>
         </Box>
     </>
   )
