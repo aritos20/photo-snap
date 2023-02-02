@@ -5,15 +5,22 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch } from 'react-redux';
 import { editDescription } from '../features/favorites/favoritesSlice';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const ModalEditDescription = ({isOpen, handleClose, id}) => {
+    const matches = useMediaQuery('(max-width:500px)');
+    let width = 400;
+
+    if (matches) {
+      width = 230;
+    }
 
     const style = {
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: {width},
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
