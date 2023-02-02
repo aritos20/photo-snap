@@ -14,7 +14,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/my-photos" element={<Favorites />} />
           </Routes>
-          </div>
+        </div>
       <Footer/>
       </div>
     </HashRouter>

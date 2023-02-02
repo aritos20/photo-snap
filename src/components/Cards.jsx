@@ -14,7 +14,6 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const Cards = ({item}) => {
     const dispatch = useDispatch();
-
     const [isOpen, setIsOpen] = useState(false);
 
     const handleDeleteClick = (item) => {

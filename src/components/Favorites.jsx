@@ -6,8 +6,7 @@ import { ImageList } from '@mui/material';
 import { Container } from '@mui/system';
 
 const Favorites = () => {
-  const favsImgs = useSelector(state => state.favoritesImgs.list);  
-
+  const favsImgs = useSelector(state => state.favoritesImgs.list);
 
   return (
     <>
