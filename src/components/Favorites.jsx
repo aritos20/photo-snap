@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import FilterByDescription from './FilterByDescription';
 import { ImageList } from '@mui/material';
 import { Container } from '@mui/system';
-import Footer from './Footer';
 
 const Favorites = () => {
   const favsImgs = useSelector(state => state.favoritesImgs.list);  

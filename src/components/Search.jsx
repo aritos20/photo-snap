@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getApiData } from '../features/search/searchSlice';
@@ -10,6 +10,10 @@ import { Button } from '@mui/material';
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getApiData());
+    }, []);
 
     const handleClick = () => {
         if (searchValue === '') {

@@ -10,7 +10,7 @@ const Footer = () => {
     <AppBar position="static" style={{background: '#0D0D0D'}} >
       <Toolbar>
         <Typography variant="h6" component="div" style={{textAlign: 'left'}}>
-          Developed an designed by Aristidis Gianicopulos
+          Developed an Designed by Aristidis Gianicopulos &copy; 2023
         </Typography>
       </Toolbar>
     </AppBar>

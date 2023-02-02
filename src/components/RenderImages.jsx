@@ -20,6 +20,8 @@ const Alert = forwardRef(function Alert(props, ref) {
 
 function RenderImages() {
     const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
+    let img = useSelector(state => state.searchImg.list);
   
     const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
@@ -29,9 +31,6 @@ function RenderImages() {
       setOpen(false);
     };
 
-    const dispatch = useDispatch();
-    let img = useSelector(state => state.searchImg.list);
-    
     const handleDownload = (url) => {
         saveAs(url);
     }

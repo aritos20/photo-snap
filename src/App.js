@@ -9,10 +9,13 @@ function App() {
   return (
     <HashRouter>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/my-photos" element={<Favorites />} />
-        </Routes>
+        <div className='main-content'>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/my-photos" element={<Favorites />} />
+          </Routes>
+          </div>
+      <Footer/>
       </div>
     </HashRouter>
   );
