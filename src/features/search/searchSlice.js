@@ -11,16 +11,15 @@ export const getApiData = createAsyncThunk(
     'search/getApiData',
     async (arg) => {
         try {
-            if (!arg || arg === '') {
+            if (!arg.searchValue || arg.searchValue === '') {
                 const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${api_key}&count=30`);
                 const data = await response.json();
                 return [...data];
             } else {
-                const response = await fetch(`https://api.unsplash.com/search/photos?client_id=${api_key}&query=${arg}&per_page=30`);
+                const response = await fetch(`https://api.unsplash.com/search/photos?client_id=${api_key}&query=${arg.searchValue}&per_page=30&page=${arg.value}`);
                 const data = await response.json();
                 return [...data.results];
             }
-
         } catch (error) {
             alert(`Failed the connection to return the images please try again later ${error}`);
         }

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getApiData } from '../features/search/searchSlice';
 import main_background from '../assets/main_background.png';
@@ -7,27 +6,26 @@ import logo from '../assets/logo.png'
 import '../css/styles.css'
 import { Button } from '@mui/material';
 
-function Search() {
-    const [searchValue, setSearchValue] = useState('');
+function Search({searchValue, setSearchValue}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApiData());
+        dispatch(getApiData({searchValue}));
     }, []);
 
     const handleClick = () => {
         if (searchValue === '') {
-            dispatch(getApiData())
+            dispatch(getApiData({searchValue}))
         } else {
-            dispatch(getApiData(searchValue))
-            setSearchValue('');
+            dispatch(getApiData({searchValue}))
+            //setSearchValue('');
         }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(getApiData(searchValue))
-        setSearchValue('');
+        dispatch(getApiData({searchValue}))
+        //setSearchValue('');
     }
 
     const handleChange = (e) => {
