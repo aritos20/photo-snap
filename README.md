@@ -1,4 +1,4 @@
-#Visit the webpage
+# Visit the webpage
 
 Link: https://aritos20.github.io/photo-snap/
 
